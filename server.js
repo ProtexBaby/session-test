@@ -36,8 +36,10 @@ server.on('connection', (ws) => {
         }
         else if (action == 'stop_session') {
             console.log('stop_session')
-            if (Sessions.has(sessionId))
+            if (Sessions.has(sessionId)) {
+                console.log(`session found: ${Sessions.get(sessionId)}`)
                 stopServer(Sessions.get(sessionId))
+            }
             else
                 console.log(`can not found id -> ${sessionId}`)
         }
@@ -77,7 +79,6 @@ function startServer() {
         		pm2.disconnect();
 		    }
         )
-        listServers()
 	})
 }
 
@@ -94,7 +95,6 @@ function stopServer(SERVICE_NAME) {
             pm2.disconnect();
         });
     });
-    listServers()
 }
 
 // ฟังก์ชันรีสตาร์ทเซิร์ฟเวอร์
