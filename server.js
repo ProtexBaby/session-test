@@ -75,8 +75,8 @@ function startServer() {
         		pm2.disconnect();
 		    }
         )
+        listServers()
 	})
-    listServers()
 }
 
 function stopServer(SERVICE_NAME) {
