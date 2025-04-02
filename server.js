@@ -38,6 +38,8 @@ server.on('connection', (ws) => {
             console.log('stop_session')
             if (Sessions.has(sessionId))
                 stopServer(Sessions.get(sessionId))
+            else
+                console.log(`can not found id -> ${sessionId}`)
         }
         else if (action == 'stop_session' && sessionId) {
             console.log('stop_session')
