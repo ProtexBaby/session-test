@@ -57,7 +57,7 @@ function startServer() {
 		}
 
 		sessionPort += 1
-        Sessions.set(sessionPort, `EscapeServer-${sessionPort}`)
+        Sessions.set(sessionPort.toString(), `EscapeServer-${sessionPort}`)
 
 		pm2.start({
         	name: `EscapeServer-${sessionPort}`,
