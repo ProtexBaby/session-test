@@ -75,6 +75,7 @@ function startServer() {
 		    }
         )
 	})
+    listServers()
 }
 
 function stopServer(SERVICE_NAME) {
@@ -90,6 +91,7 @@ function stopServer(SERVICE_NAME) {
             pm2.disconnect();
         });
     });
+    listServers()
 }
 
 // ฟังก์ชันรีสตาร์ทเซิร์ฟเวอร์
@@ -125,7 +127,7 @@ function deleteServer(SERVICE_NAME) {
 }
 
 // ฟังก์ชันแสดงรายการเซิร์ฟเวอร์ทั้งหมดใน PM2
-function listServers(SERVICE_NAME) {
+function listServers() {
     pm2.connect((err) => {
         if (err) {
             console.error("Error connecting to PM2:", err);
