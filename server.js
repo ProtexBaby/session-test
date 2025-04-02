@@ -57,7 +57,8 @@ function startServer() {
 		}
 
 		sessionPort += 1
-        Sessions.set(toString(sessionPort), `EscapeServer-${sessionPort}`)
+        const str = sessionPort.toString()
+        Sessions.set(str, `EscapeServer-${sessionPort}`)
 
 		pm2.start({
         	name: `EscapeServer-${sessionPort}`,
